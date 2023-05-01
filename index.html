@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covered</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+</head>
+<body>
+    <div id="app">
+        <div class="mainContent">
+            <div class="firstPage">
+                <div class="mainContent">
+                    <div class="left">
+                        <h1>Covered</h1>
+                        <div class="sub">Customize your Steam Library with a few Clicks.</div>
+                        <div class="buttons">
+                            <button onclick="window.location = './register'">Register</button>
+                            <button onclick="window.location = './login'">Login</button>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="covers">
+                            <div class="oneCover" v-for="cover in listCovers">
+                                <div class="cover" :style="{ backgroundImage: 'url(' + cover.Path + ')' }">
+                                </div>
+                                <a :href="'https://www.steamgriddb.com/profile/' + cover.DifferentAuthor" class="sourceCover">@{{cover.AuthorId}}</a> <span class="directLink">https://www.steamgriddb.com/profile/{{cover.DifferentAuthor}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div>
+                        Tutorial
+                    </div>
+                    <img src="down_arrow.svg" alt="">
+                </div>
+            </div>
+            <div class="thirdPage page">
+                <h1>How to use</h1>
+                <p>Here is a step-for-step guide on how to use Covered:
+                    <ol>
+                        <li>Create a Covered Account: <ol>
+                            <li>Enter all your User Credentials</li>
+                            <li>If you have problems finding your Steam ID follow this Tutorial: <a href="https://www.ubisoft.com/en-gb/help/article/finding-your-steam-id/000060565">Ubisoft Support on how to find your Steam Id</a></li>
+                            <li>Make sure, that your Steam Profile is public: <a href="https://help.steampowered.com/en/faqs/view/588C-C67D-0251-C276">Steam Support on how to make your Profile Public</a> </li>
+                        </ol></li>
+                        <li>You should be automaticly logged in</li>
+                        <li>Now you have to select the Covers you like.</li>
+                        <li>The 4 Buttons: 
+                            <ul>
+                                <li>"Save": You set this Cover as your Cover for this Game and you wont get any recommendations for that Game anymore (you should be carefull with this option)</li>
+                                <li>"Like": You add this Cover to your Liked Covers. When your finished you can select your Favorite Cover from those Covers</li>
+                                <li>"Dislike": You just skip this Cover</li>
+                                <li>"Dislike Game": You wont get any Covers for this Game anymore</li>
+                            </ul>
+                        </li>
+                        <li>Finishing
+                            <ol>
+                                <li>Select your Favorite Covers out of your Selection
+                                    <ul>
+                                        <li>Go to the "Profile" Page</li>
+                                        <li>Select the Game you want to select your Cover for</li>
+                                        <li>Now press the "Save" button on the bottom right of the Cover you like the most</li>
+                                        <li>Do this for all of your Games</li>
+                                    </ul>
+                                </li>
+                                <li>Download your Folder through the "Download" page</li>
+                                <li>Copy all the Files from your Downloaded ZIP file and paste them into your Steam LibraryCache folder ('C:\Program Files (x86)\Steam\appcache\librarycache')</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </p>
+            </div>
+            <div class="secondPage page">
+                <h1>About this this Project</h1>
+                <p>Covered is a WebApp, with the intention to make it as easy as possible to customize your Steam Library with your Favorite Covers. Therefore it uses the Steam API to access your Game Library and give you recommendations on which games you could be interested in. Then it goes to search the Covered Database to look for Covers for those games. If it doesnt find any Covers it will try to find some Covers through the <a href="https://www.steamgriddb.com/api/v2/">SteamGridDB API</a>. It will then present you the Covers it found and you can select, which one you like the best. As soon as you'r finished with this process, you can Download a ZIP file, containing all Game Covers. You only have to paste those files into the Steam LibraryCache Folder.</p>
+
+                <h2>Credit</h2>
+                <p>This project is only possible through the help of the <a href="https://www.steamgriddb.com/">SteamGridDB</a> Database and API. All of the game Covers you see in this app are listed on <a href="https://www.steamgriddb.com/">SteamGridDB</a>. 
+                </p>
+            </div>
+            <div class="fourthPage page">
+                <h1>Credit For Icons</h1>
+                <ol>
+                    <li><a target="_blank" href="https://icons8.com/icon/GzfhZpcv_VnI/apple-arcade">Apple Arcade</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script src="vue.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

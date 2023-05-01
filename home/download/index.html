@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/72f0856b39.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covered</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav><span class="heading">Covered</span><div class="seperator"></div> <div class="navigations">
+        <a href="../"><i class="fa-solid fa-house"></i></a>
+        <a href="../search"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="../profile"><i class="fa-solid fa-user"></i></a>
+        <a href="../"><i class="fa-solid fa-download"></i></a>
+    </div></nav>
+    <div class="mainContent" id="app">
+        <div class="header">
+            <h1 class="userName">{{userData.UserName}}</h1>
+        </div>
+       <button style="margin: 0;" @click="download">Download your Folder <i v-if="!isLoading" class="fa-solid fa-file-arrow-down"></i> <div v-else class="loader"></div></button>
+       <div class="info" :class="{'invisible': !isLoading}">
+        <h2>While your Download is loading</h2>
+        <p>Hey, im Janne. Im 17 years old and I created this website. If you want, you can support me via PayPal
+        </p>
+        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+            <input type="hidden" name="hosted_button_id" value="93R323T7HBJL8" />
+            <button value="Donate" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button">Donate</button></form>
+       </div>
+    </div>
+    <script src="../../vue.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 75px;
+}
+
+h2 {
+    font-size: 60px;
+}
+
+p {
+    font-size: 40px;
+}
+
+.firstPage {
+    height: 100vh;
+    display: flex;
+    margin-left: 5%;
+}
+
+
+.firstPage > .left {
+    width: 50%;
+    justify-content: center;
+    align-items: left;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: .2px;
+    height: 100vh;
+    padding-left: 200px;
+}
+
+.firstPage > .left > h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 5em;
+    padding-bottom: 0;
+    margin-bottom: .5em;
+    margin-top: 0;
+}
+
+.firstPage > .left > .sub {
+    font-size: 2em;
+    color: rgba(0, 0, 0, .7);
+}
+
+
+.right {
+    width: 50%;
+    height: 100vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.covers {
+    width: 40%;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    align-items: center;    
+    grid-auto-columns: 100%;
+}
+
+.oneCover {
+    width: 100%;
+    object-fit: revert;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: .3s opacity ease;
+}
+
+.activeCover {
+    opacity: 1;
+}
+  
+.covers > * {
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.cover {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px gray;
+    text-align: right;
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 600/900;
+    justify-content: center;
+}
+
+.oneCover > a {
+    font-weight: bolder;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    width: auto;
+    color: black;
+}
+
+.directLink {
+    color: rgba(0, 0, 0, .5);
+    font-family: "Poppins", sans-serif;
+    word-wrap: break-word;
+}
+
+button {
+    background-color: #0a6bff;
+    border-radius: 4px;
+    border: 0;
+    box-shadow: rgba(1,60,136,.5) 0 -1px 3px 0 inset,rgba(0,44,97,.1) 0 3px 6px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 0;
+    min-height: 56px;
+    min-width: 120px;
+    padding: 16px 20px;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    transition: all .2s cubic-bezier(.22, .61, .36, 1);
+    margin-right: 40px;
+    transition: background-color ease .3s;
+}
+
+button:disabled {
+    background-color: #4b6ea1;
+}
+
+button:hover {
+    background-color: #065dd8;
+    transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+    button {
+        padding: 16px 44px;
+        min-width: 150px;
+    }
+} 
+  
+.inputField {
+    height: 60px;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 50%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, .7);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: -30px;
+}
+
+.form__label {
+    position: relative;
+    top: -30px;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+    transition: color ease .3s;
+}
+
+.form__field:focus, .form__field:valid {
+    padding-bottom: 6px;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #0a6bff, #8ab9ff);
+    border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label,  .form__field:valid ~ .form__label{
+    position: relative;
+    top: -50px;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #0a6bff;
+    font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+    box-shadow: none;
+}
+
+.input {
+    margin-top: 40px;
+}
+
+.hint {
+    padding-top: 0;
+    padding-bottom: 10px;
+    color: #696969;
+    width: 50%;
+    font-size: 15px;
+}
+
+.hint > a {
+    color: #696969;
+}
+
+.submitButton {
+    width: 50%;
+    display: flex; 
+    justify-content: center;
+}
+
+.submitButtonBtn {
+    margin: 0;
+}
+
+.error {
+    padding-top: 0;
+    margin-top: 0;
+    color: #696969;
+}
+
+.inputFieldUsername {
+    padding-bottom: 0; 
+    margin-bottom: 0;
+}

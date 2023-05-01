@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/72f0856b39.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covered</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav><span class="heading">Covered</span><div class="seperator"></div><span>Demo Account</span></nav>
+    <div class="mainContent" id="app">
+        <h2>Configure your Account</h2>
+        <div class="creation">
+            <div class="inputField">
+                <input type="text" v-model="searchGames" class="form__field" placeholder="Games" name="steamId" id='steamId' required />
+                <label for="steamId" class="form__label">Search for Games</label>
+            </div>
+            <div class="games">
+                <div class="list">
+                    <div class="before listBtn" v-if="page != 0 && searchGames == ''" @click="page -= 1">
+                        <div class="text">Page Up</div>
+                        <div class="shine"></div>
+                    </div>
+                    <div v-for="item in gamesDisplay" :class="[item.isImg ? 'icon loading' : 'video loading']" :id="item.imgPath" @click="addToLiked(item.GameId)">
+                        <div class="shine"></div>
+                        <video v-if="item.isImg == false" autoplay loop muted>
+                            <source :src="item.imgPath">
+                        </video>
+                    </div>
+                    <div class="after listBtn" v-if="page <= games.length / pageSize && searchGames == ''" @click="page += 1">
+                        <div class="text">Page Down</div>
+                        <div class="shine"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="finish">
+                <button>Finish</button>
+                <div class="hint">You will be logged in to this account, but since you dont have a password or Email set up, you cant access it later.</div>
+            </div>
+        </div>
+    </div>
+    <script src="../vue.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

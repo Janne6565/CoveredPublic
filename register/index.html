@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covered</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+</head>
+<body>
+    <div id="app">
+        <div class="mainContent">
+            <div class="firstPage">
+                <div class="left">
+                    <h1>Covered</h1>
+                    <div class="sub">Create Your Covered Account</div>
+                    <div class="input">
+                        <div class="inputField inputFieldUsername">
+                            <input type="text" @keyup="checkUsername" v-model="userData.userName" class="form__field" placeholder="Username" name="username" id='username' required />
+                            <label for="username" class="form__label">Username</label>
+                        </div>
+                        <div class="error" v-if="isErrorInRegister">*This Username has allready been taken</div>
+                        <div class="inputField">
+                            <input type="text" v-model="userData.userEmail" class="form__field" placeholder="email" name="email" id='email' required />
+                            <label for="email" class="form__label">Email</label>
+                        </div>
+                        <div class="inputField">
+                            <input type="text" v-model="userData.steamId" class="form__field" placeholder="Steam Id" name="steamId" id='steamId' required />
+                            <label for="steamId" class="form__label">Steam ID</label>
+                        </div>
+                        <div class="hint" v-if="isSteamError" style="color: rgba(255, 0, 0, .5);">Make sure your ProfileId is Correct and your Profile is Public (<a style="color: rgba(255, 0, 0, .5);" href="https://help.steampowered.com/en/faqs/view/588C-C67D-0251-C276">How to make your Profile Public</a>)</div>
+                        <div class="hint">*How to find your Steam ID: <a href="https://www.ubisoft.com/en-gb/help/article/finding-your-steam-id/000060565">How to find your Steam ID</a></div>
+                        <div class="inputField">
+                            <input type="password" v-model="userData.userPassword" class="form__field" placeholder="password" name="password" id='password' required />
+                            <label for="password" class="form__label">Password</label>
+                        </div>
+                        <div class="submitButton">
+                            <button class="submitButtonBtn" @click="registerUser" :disabled="isErrorInRegister">Register</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="covers">
+                        <div class="oneCover" v-for="cover in listCovers">
+                            <div class="cover" :style="{ backgroundImage: 'url(' + cover.Path + ')' }">
+                            </div>
+                            <a :href="'https://www.steamgriddb.com/profile/' + cover.DifferentAuthor" class="sourceCover">@{{cover.AuthorId}}</a> <span class="directLink">https://www.steamgriddb.com/profile/{{cover.DifferentAuthor}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../vue.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

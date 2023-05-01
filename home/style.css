@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 75px;
+}
+
+h2 {
+    font-size: 60px;
+}
+
+p {
+    font-size: 40px;
+}
+
+.firstPage {
+    height: 100vh;
+    display: flex;
+    margin-left: 5%;
+}
+
+
+.firstPage > .left {
+    width: 50%;
+    justify-content: center;
+    align-items: left;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: .2px;
+    height: 100vh;
+    padding-left: 200px;
+}
+
+.firstPage > .left > h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 5em;
+    padding-bottom: 0;
+    margin-bottom: .5em;
+    margin-top: 0;
+}
+
+.firstPage > .left > .sub {
+    font-size: 2em;
+    color: rgba(0, 0, 0, .7);
+}
+
+
+.right {
+    width: 50%;
+    height: 100vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.oneCover {
+    width: 100%;
+    object-fit: revert;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: .3s opacity ease;
+}
+
+.cover {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px gray;
+    text-align: right;
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 600/900;
+    justify-content: center;
+    background-color: transparent;
+    background-image: none;
+    transition: background-color ease .3s background-image ease .3s;
+}
+
+.cover.loading {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.oneCover > a {
+    font-weight: bolder;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    width: auto;
+    color: black;
+}
+
+.directLink {
+    color: rgba(0, 0, 0, .5);
+    font-family: "Poppins", sans-serif;
+    word-wrap: break-word;
+}
+
+nav {
+    display: flex; 
+    width: 100%;
+    height: 75px;
+    align-items: center;
+    gap: 45px;
+    border-bottom: 1px #BABABA solid;
+}
+
+nav > div {
+    display: block;
+}
+
+nav > span {
+    font-size: 40px;
+    color: #4E4E4E;
+    padding-left: 40px;
+}
+
+nav > .seperator {
+    width: 3px;
+    height: 60%;
+    border-radius: 2px;
+    background-color: #4E4E4E;
+}
+
+nav > .navigations {
+    height: 100%;
+    display: flex; 
+    align-items: center;
+    gap: 100px;
+}
+
+nav > .navigations > a {
+    height: 60%;
+    display: block;
+    font-size: 35px;
+    color: #4E4E4E;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+nav > .navigations > a {
+    transform: scale(1);
+    transition: filter ease .3s, transform ease .3s;
+}
+
+nav > .navigations > a:hover {
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, .6));
+    transform: scale(1.1);
+}
+
+.mainContent {
+    width: 100%;
+    height: calc(100vh - 76px);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    align-items: center;
+}
+
+.activeCover {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.activeCover > .cover {
+    height: 70%;
+    width: auto;
+    aspect-ratio: 600/900;
+    justify-content: space-between;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover.loading {
+    background-image: none;
+}
+
+.cover > .loader {
+    opacity: 0;
+    transition: all ease .3s;
+    width: auto;
+    aspect-ratio: 1;
+    border-width: 13px;
+    position: absolute;
+    height: 30%;
+}
+
+.cover {
+    overflow: hidden;
+}
+
+.cover > video {
+    width: 100%;
+    height: 100%;
+}
+
+.cover.loading > .loader {
+    opacity: 1;
+}
+
+.loader {
+    border: 4px solid lightgray; /* Light grey */
+    border-top: 4px solid #4E4E4E; /* Blue */
+    border-radius: 50%;
+    aspect-ratio: 1;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.activeCover > .source {
+    width: calc(100% * .91);
+}
+
+.mainContent > .buttons {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    justify-content: space-between;
+}
+
+.mainContent > .buttons > .button {
+    transform: scale(1);
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, .61));
+    transition: all ease .4s;
+}
+
+.mainContent > .buttons > .button:hover {
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, .9));
+    transform: scale(1.05);
+}
+
+.covers {
+    height: 100%;
+    display: grid;
+    grid-auto-columns: 100%;
+}
+
+.activeCover {
+    opacity: 1;
+    transition: opacity ease .3s;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    z-index: 1;
+}
+
+.activeCover1 > .cover1 {
+    z-index: 0;
+    opacity: 0;
+}
+
+.activeCover0 > .cover2 {
+    z-index: 0;
+    opacity: 0;
+}
+
+.buttons {
+    padding-bottom: 75px;
+}
+
+.empty {
+    height: 75px;
+}

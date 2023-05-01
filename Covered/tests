@@ -1,0 +1,22 @@
+create User: 
+requests.get("https://projektejwkk.com/Covered/API/create/user.php?userName=Janne&userPassword=test1234&userEmail=jabbekeipert@gmail.com&steamId=76561198803658880").text
+
+get userDetails: 
+requests.get("https://projektejwkk.com/Covered/API/get/userDetails.php?userId=1&userAuth=2tw0NurCQNjMBav95ZqnCHyI0dtDdo8vVX7KGske").text
+
+get loginUser:
+requests.get("https://projektejwkk.com/Covered/API/get/userLogin.php?userEmail=jabbekeipert@gmail.com&userPassword=test1234").text
+
+add coverToLiked: 
+requests.get("https://projektejwkk.com/Covered/API/add/coverToLiked.php?userId=1&userAuth=2tw0NurCQNjMBav95ZqnCHyI0dtDdo8vVX7KGske&coverId=1").text
+
+discover covers: 
+requests.get("https://projektejwkk.com/Covered/API/discover/covers.php?userId=1&userAuth=q1bdDCTfTVwWSPfJVP3b2V6Bz3ZlTTF9ZshxFEHg").text
+
+add game 
+requests.get("https://projektejwkk.com/Covered/API/discover/covers.php?adminKey=ahdihhasiudhaiushduiavhduiahduivaunhv127831784zv81235z7z78aszve78szna7878nz2178z3781gvkjnghnviun2374z&steamId=751780").text
+
+requests.get("https://projektejwkk.com/Covered/API/add/coverToLiked.php?userId=1&userAuth=q1bdDCTfTVwWSPfJVP3b2V6Bz3ZlTTF9ZshxFEHg&coverId=2680")
+
+
+requests.get("https://projektejwkk.com/Covered/API/downloadZip.php?userId=19&userAuth=BhdRclMxdDRLujKN5AZMegLHodpIU97YgBVyK4Lh&_=1659063753521")

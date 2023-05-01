@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/72f0856b39.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covered</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav><span class="heading">Covered</span><div class="seperator"></div> <div class="navigations">
+        <a href="../home"><i class="fa-solid fa-house"></i></a>
+        <a href="../home/search"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="../home/profile"><i class="fa-solid fa-user"></i></a>
+        <a href="../home/download"><i class="fa-solid fa-download"></i></a>
+    </div></nav>
+    <div class="mainContent" id="app">
+        <div class="header">
+            <h1 class="userName">{{userData.UserName}} - {{gameName}}</h1>
+        </div>
+        <div class="userData">
+            <div class="selectArea">
+                <div class="areaSelect">
+                    <input class="radio" type="radio" id="listArea" value=true name="selectedArea" checked hidden>
+                    <label class="labelForRadio" for="listArea">List Area</label>
+                </div>
+            </div>
+            <div class="lists">
+                <div class="list listArea">
+                    <a class="icon" v-for="item in list">
+                        <img :src="item.Path" alt="" @click="window.location = '../../Covered/cover#' + item.CoverId">
+                        <div class="shine"></div>
+                        <div class="buttonSave" @click="saveCover(item.CoverId)"><img src="../home/assets/save.svg" alt=""></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../vue.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

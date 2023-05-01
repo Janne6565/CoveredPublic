@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/72f0856b39.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covered</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav><span class="heading">Covered</span><div class="seperator"></div> <div class="navigations">
+        <a href="."><i class="fa-solid fa-house"></i></a>
+        <a href="./search"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="./profile"><i class="fa-solid fa-user"></i></a>
+        <a href="./download"><i class="fa-solid fa-download"></i></a>
+    </div></nav>
+    <div class="mainContent" id="app">
+        <div class="covers activeCover0">
+            <div class="activeCover cover1">
+                <a :href="coverRightNow.linkToPost" :class="[coverRightNow.isVideo ? 'cover' : 'cover toLoad']" :id="coverRightNow.Path"> 
+                    <div class="loader"></div>
+                    <video autoplay loop muted v-if="coverRightNow.isVideo">
+                        <source :src="coverRightNow.Path">
+                    </video>
+                </a>
+                <div class="source">
+                    <a :href="'https://www.steamgriddb.com/profile/' + coverRightNow.DifferentAuthor">@{{coverRightNow.AuthorId}}</a><br>
+                    <span class="directLink">https://www.steamgriddb.com/profile/{{coverRightNow.DifferentAuthor}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <div class="button" @click="saveCover(coverRightNow.CoverId)">
+                <img src="./assets/save.svg" alt="">
+            </div>
+            <div class="button" @click="addCoverToList(coverRightNow.CoverId, coverRightNow.GameId)">
+                <img src="./assets/add.svg" alt="">
+            </div>
+            <div class="button" @click="removeCover(coverRightNow.CoverId)">
+                <img src="./assets/exit.svg" alt="">
+            </div>
+            <div class="button" @click="removeGame(coverRightNow.GameId)">
+                <img src="./assets/removeGame.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="../vue.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/72f0856b39.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covered</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav><span class="heading">Covered</span><div class="seperator"></div> <div class="navigations">
+        <a href="../"><i class="fa-solid fa-house"></i></a>
+        <a href="../search"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="./"><i class="fa-solid fa-user"></i></a>
+        <a href="../download"><i class="fa-solid fa-download"></i></a>
+    </div></nav>
+    <div class="mainContent" id="app">
+        <div class="header">
+            <h1 class="userName">{{userData.UserName}}</h1>
+        </div>
+        <div class="userData">
+            <div class="selectArea">
+                <div class="areaSelect">
+                    <input class="radio" type="radio" id="listArea" value=true name="selectedArea" v-model="isList" checked hidden>
+                    <label class="labelForRadio" for="listArea">List Area</label>
+                </div>
+                <div class="areaSelect">
+                    <input class="radio" type="radio" id="likedArea" value=false name="selectedArea" v-model="isList" hidden>
+                    <label class="labelForRadio" for="likedArea">Liked Area</label>
+                </div>
+            </div>
+            <div class="lists">
+                <div class="list listArea" :class="{'invis': isList=='false'}">
+                    <a class="toLoad icon loading" v-for="list in listLists" :href="'https://projektejwkk.com/Covered/list#' + list.GameId" :id="list.ThumbPath">
+                        <div class="loader"></div>
+                        <div class="shine"></div>
+                    </a>
+                </div>
+                <div class="list listArea" :class="{'invis': isList=='true'}">
+                    <a class="toLoad icon loading" v-for="item in listLiked" :href="'https://projektejwkk.com/Covered/cover#' + item.CoverId" :id="item.ThumbPath">
+                        <div class="loader"></div>
+                        <div class="shine"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../vue.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

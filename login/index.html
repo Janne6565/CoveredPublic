@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covered</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+</head>
+<body>
+    <div id="app">
+        <div class="mainContent">
+            <div class="firstPage">
+                <div class="left">
+                    <h1>Covered</h1>
+                    <div class="sub">Login to your Covered Account</div>
+                    <div class="input">
+                        <div class="inputField">
+                            <input type="text" v-model="userData.userEmail" class="form__field" placeholder="email" name="email" id='email' required />
+                            <label for="email" class="form__label">Email</label>
+                        </div>
+                        <div class="inputField">
+                            <input type="password" v-model="userData.userPassword" class="form__field" placeholder="password" name="password" id='password' required />
+                            <label for="password" class="form__label">Password</label>
+                        </div>
+                        <div class="submitButton">
+                            <button class="submitButtonBtn" @click="login">Login</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="covers">
+                        <div class="oneCover" v-for="cover in listCovers">
+                            <div class="cover" :style="{ backgroundImage: 'url(' + cover.Path + ')' }">
+                            </div>
+                            <a :href="'https://www.steamgriddb.com/profile/' + cover.DifferentAuthor" class="sourceCover">@{{cover.AuthorId}}</a> <span class="directLink">https://www.steamgriddb.com/profile/{{cover.DifferentAuthor}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../vue.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

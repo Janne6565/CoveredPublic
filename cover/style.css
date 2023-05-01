@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 75px;
+}
+
+h2 {
+    font-size: 60px;
+}
+
+p {
+    font-size: 40px;
+}
+
+.firstPage {
+    height: 100vh;
+    display: flex;
+    margin-left: 5%;
+}
+
+
+.firstPage > .left {
+    width: 50%;
+    justify-content: center;
+    align-items: left;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: .2px;
+    height: 100vh;
+    padding-left: 200px;
+}
+
+.firstPage > .left > h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 5em;
+    padding-bottom: 0;
+    margin-bottom: .5em;
+    margin-top: 0;
+}
+
+.firstPage > .left > .sub {
+    font-size: 2em;
+    color: rgba(0, 0, 0, .7);
+}
+
+
+.right {
+    width: 50%;
+    height: 100vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.oneCover {
+    width: 100%;
+    object-fit: revert;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: .3s opacity ease;
+}
+
+.cover {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px gray;
+    text-align: right;
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 600/900;
+    justify-content: center;
+}
+
+.oneCover > a {
+    font-weight: bolder;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    width: auto;
+    color: black;
+}
+
+.directLink {
+    color: rgba(0, 0, 0, .5);
+    font-family: "Poppins", sans-serif;
+    word-wrap: break-word;
+}
+
+nav {
+    display: flex; 
+    width: 100%;
+    height: 75px;
+    align-items: center;
+    gap: 45px;
+    border-bottom: 1px #BABABA solid;
+}
+
+nav > div {
+    display: block;
+}
+
+nav > span {
+    font-size: 40px;
+    color: #4E4E4E;
+    padding-left: 40px;
+}
+
+nav > .seperator {
+    width: 3px;
+    height: 60%;
+    border-radius: 2px;
+    background-color: #4E4E4E;
+}
+
+nav > .navigations {
+    height: 100%;
+    display: flex; 
+    align-items: center;
+    gap: 100px;
+}
+
+nav > .navigations > a {
+    height: 60%;
+    display: block;
+    font-size: 35px;
+    color: #4E4E4E;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+nav > .navigations > a {
+    transform: scale(1);
+    transition: filter ease .3s, transform ease .3s;
+}
+
+nav > .navigations > a:hover {
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, .6));
+    transform: scale(1.1);
+}
+
+
+.mainContent {
+    width: 100%;
+    height: calc(100vh - 76px);
+    display: flex;
+    gap: 10%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    height: 10vh;
+}
+
+.labelForRadio {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+}
+
+.labelForRadio::before {
+    content: "";
+    background-color: #4E4E4E;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: all ease .3s;
+    z-index: -1;
+}
+
+.radio:checked ~ .labelForRadio {
+    color: white;
+}
+
+.radio:checked ~ .labelForRadio::before {
+    top: 0%;
+}
+
+.userData {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selectArea {
+    display: flex;
+    width: 100%;
+    border-top: thin solid #4E4E4E;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-bottom: thin solid #4E4E4E;
+    height: 50px;
+    display: flex;
+}
+
+.areaSelect {
+    width: 50%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #4E4E4E;
+    user-select: none;
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+}
+
+.list {
+    width: 80%;
+    min-height: 100vh;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    padding-bottom: 50px;
+    position: absolute;
+}
+
+.list > .icon {
+    width: 250px;
+    box-shadow: 0 0 10px black;
+    height: 375px;
+    overflow: hidden; 
+    position: relative;
+    transition: all ease .3s;
+}
+
+.list > .icon > img {
+    height: 100%;
+}
+
+.icon > .shine {
+    width: 100%; 
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.icon > .shine::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    height: 100%;
+    transition: all ease .3s;
+    transform: rotate(30deg) scale(3);
+    top: -200%;
+    right: -50%;
+    filter: blur(4px);
+}
+
+.icon:hover > .shine::before {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    height: 100%;
+    transition: all ease .3s;
+    transform: rotate(30deg) scale(3);
+    top: -160%;
+    right: -50%;
+    filter: blur(4px);
+}
+
+.icon:hover {
+    transform: scale(1.1) skewX(1deg);
+}
+
+.list.invis {
+    opacity: 0; 
+    pointer-events: none;
+}
+
+.lists {
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+}
+
+.mainContent {
+    justify-content: center;
+}
