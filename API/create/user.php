@@ -22,7 +22,7 @@ foreach ($resUser as $item) {
     if ($lst != '{"response":{}}') {
         $json = json_decode($lst)->response->games;
         $sqlToExe = "";
-        $userId = $item["UserId"]; 
+        $userId = $item["UserId"];
         foreach ($json as $game) {
             $queryCheckIfGameExists = "SELECT * FROM Games WHERE SteamId = $game->appid";
             $resultExists = $conn->query($queryCheckIfGameExists);
