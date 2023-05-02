@@ -101,6 +101,7 @@ p {
     color: rgba(0, 0, 0, .5);
     font-family: "Poppins", sans-serif;
     word-wrap: break-word;
+    text-decoration: none;
 }
 
 nav {

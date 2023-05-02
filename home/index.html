@@ -18,15 +18,15 @@
     <div class="mainContent" id="app">
         <div class="covers activeCover0">
             <div class="activeCover cover1">
-                <a :href="coverRightNow.linkToPost" :class="[coverRightNow.isVideo ? 'cover' : 'cover toLoad']" :id="coverRightNow.Path"> 
+                <a :href="coverRightNow.linkToPost" target="_blank" :class="[coverRightNow.isVideo ? 'cover' : 'cover toLoad']" :id="coverRightNow.Path"> 
                     <div class="loader"></div>
                     <video autoplay loop muted v-if="coverRightNow.isVideo">
                         <source :src="coverRightNow.Path">
                     </video>
                 </a>
                 <div class="source">
-                    <a :href="'https://www.steamgriddb.com/profile/' + coverRightNow.DifferentAuthor">@{{coverRightNow.AuthorId}}</a><br>
-                    <span class="directLink">https://www.steamgriddb.com/profile/{{coverRightNow.DifferentAuthor}}</span>
+                    <a target="_blank" :href="'https://www.steamgriddb.com/profile/' + coverRightNow.DifferentAuthor">@{{coverRightNow.AuthorId}}</a><br>
+                    <a class="directLink" :href="'https://www.steamgriddb.com/profile/' + coverRightNow.DifferentAuthor">https://www.steamgriddb.com/profile/{{coverRightNow.DifferentAuthor}}</a>
                 </div>
             </div>
         </div>

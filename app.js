@@ -2,7 +2,7 @@ var vue = new Vue({
     el: '#app',
     data() {
         return {
-            listExamples: [1214, 2, 44, 210, 240, 288, 366, 753, 575],
+            listExamples: [10, 11, 13, 14, 23, 24, 34, 30, 28, 43, 46, 51, 52, 54, 56],
             listCovers: [],
             activeCover: 0
         }

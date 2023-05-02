@@ -137,7 +137,12 @@ button {
     touch-action: manipulation;
     vertical-align: baseline;
     transition: all .2s cubic-bezier(.22, .61, .36, 1);
+    transform: translateY(0);
     margin-right: 40px;
+}
+
+button:disabled {
+    background-color: #4b6ea1;
 }
 
 button:hover {
@@ -183,10 +188,9 @@ button:hover {
     position: relative;
     top: -30px;
     display: block;
-    transition: 0.2s;
     font-size: 1rem;
     color: #9b9b9b;
-    transition: color ease .3s;
+    transition: all ease .3s;
 }
 
 .form__field:focus, .form__field:valid {
@@ -195,6 +199,7 @@ button:hover {
     border-image: linear-gradient(to right, #0a6bff, #8ab9ff);
     border-image-slice: 1;
 }
+
 .form__field:focus ~ .form__label,  .form__field:valid ~ .form__label{
     position: relative;
     top: -50px;
@@ -236,3 +241,13 @@ button:hover {
     margin: 0;
 }
 
+.error {
+    padding-top: 0;
+    margin-top: 0;
+    color: #696969;
+}
+
+.inputFieldUsername {
+    padding-bottom: 0; 
+    margin-bottom: 0;
+}

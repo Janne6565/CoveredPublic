@@ -2,7 +2,7 @@ var vue = new Vue({
     el: '#app',
     data() {
         return {
-            listExamples: [1214, 2, 44, 210, 240, 288, 366, 753, 575],
+            listExamples: [10, 11, 13, 14, 23, 24, 34, 30, 28, 43, 46, 51, 52, 54, 56],
             listCovers: [],
             activeCover: 0,
             userData: {
@@ -13,6 +13,7 @@ var vue = new Vue({
             },
             isErrorInRegister: false,
             isSteamError: false,
+            isLoading: false,
         }
     },
     methods: {
@@ -25,20 +26,27 @@ var vue = new Vue({
             }
         },
         registerUser() {
+            let self = this
+            self.isLoading = true
+            console.log("Registering user...")
             if (!this.isErrorInRegister) {
                 this.checkUserSteam(e => {
                     if (e == "true") {
-                        let self = this
+                        console.log("Steam ID is valid")
                         let xml = new XMLHttpRequest()
                         xml.open("GET", self.echoParams("https://projektejwkk.com/Covered/API/create/user.php", self.userData))
+                        console.log("URL: " + self.echoParams("https://projektejwkk.com/Covered/API/create/user.php", self.userData))
                         xml.send()
                         xml.onload = function() {
                             let jsonResponse = JSON.parse(this.response)
+                            console.log(this.response)
                             if (jsonResponse["Code"] == "200") {
                                 let userData = jsonResponse["Message"]
                                 self.userInfos = userData
                                 self.setCookies()
                                 window.location = "../"
+                                self.isLoading = false
+                                console.log("User registered !")
                             }
                         }
                     } else {
@@ -63,7 +71,6 @@ var vue = new Vue({
             xml.send()
             xml.onload = function () {
                 let jsonResponse = JSON.parse(this.response)
-                console.log(jsonResponse)
                 self.isErrorInRegister = (jsonResponse.Code == 201) 
             }
         },
@@ -71,7 +78,6 @@ var vue = new Vue({
             if (document.readyState === 'complete') {
                 let covers = document.getElementsByClassName("covers")[0]
                 let coversList = covers.getElementsByClassName("oneCover")
-                console.log(coversList[this.activeCover])
                 coversList[this.activeCover].classList.toggle("activeCover")
                 this.activeCover += 1
                 if (this.activeCover >= this.listCovers.length) {
